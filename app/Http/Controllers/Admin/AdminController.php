@@ -74,8 +74,7 @@ class AdminController extends Controller
                 'password' => bcrypt($request->input('password')),
             ];
             $admin->update($data);
-            Alert::toast('Profile Updated Successfully!', 'success');
-            return back()->withInput($request->only('email', 'remember'));
+            return back()->with('success', 'Profile changed successfully!');
         }
 
         $data = [
@@ -83,9 +82,7 @@ class AdminController extends Controller
             'email' => $request->input('email'),
         ];
         $admin->update($data);
-
-        Alert::toast('Profile Updated Successfully!', 'success');
-        return back()->withInput($request->only('email', 'remember'));
+        return back()->with('success', 'Profile changed successfully!');
     }
 
 }

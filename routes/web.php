@@ -32,5 +32,8 @@ Route::prefix('/admin')->namespace('Admin')->name('admin.')->group(function() {
         Route::get('/logout', 'AdminController@logout')->name('logout');
         Route::put('/profile/{admin}', 'AdminController@updateProfile')->name('update-profile');
         Route::get('/profile/{admin}', 'AdminController@profile')->name('profile');
+
+        Route::resource('category', 'Category\CategoryController');
+        // Route::resource('model', 'Model\ModelController');
     });
 });
